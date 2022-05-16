@@ -33,6 +33,7 @@ export const Countries = () => {
                 type='radio'
                 id={continent}
                 name='continentRadio'
+                checked={continent === selectedRadio}
                 onChange={(e) => {
                   setSelectedRadio(e.target.id);
                 }}
@@ -42,6 +43,11 @@ export const Countries = () => {
           );
         })}
       </ul>
+      {selectedRadio && (
+        <button onClick={() => setSelectedRadio('')}>
+          Annuler la recherche
+        </button>
+      )}
       <ul>
         {countries
           .filter((country) => country.continents[0].includes(selectedRadio))
