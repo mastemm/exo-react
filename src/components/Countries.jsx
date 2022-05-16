@@ -13,7 +13,7 @@ export const Countries = () => {
       setCountries(data);
     });
   }, []);
-  // const handleChange = (event) => {target.value};
+
   return (
     <div className='countries'>
       <ul className='radio-container'>
@@ -43,9 +43,13 @@ export const Countries = () => {
         })}
       </ul>
       <ul>
-        {countries.slice(0, rangeValue).map((country, index) => {
-          return <Card key={index} toto={country} />;
-        })}
+        {countries
+          .filter((country) => country.continents[0].includes(selectedRadio))
+          .sort((a, b) => b.population - a.population)
+          .slice(0, rangeValue)
+          .map((country, index) => {
+            return <Card key={index} toto={country} />;
+          })}
       </ul>
     </div>
   );
