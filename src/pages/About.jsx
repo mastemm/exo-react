@@ -1,9 +1,11 @@
 import React from 'react';
+import { Logo } from '../components/Logo';
 import Navigation from '../components/Navigation';
 
 function About() {
   return (
     <div>
+      <Logo />
       <Navigation />
       <h1>A propos</h1>
       <br />
